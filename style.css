@@ -68,3 +68,487 @@ ul {
 /* Navigation Bar (Assuming it's outside the Hero and sticky) */
 nav {
     position: sticky; /* Makes the nav stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Slightly transparent dark background */
+    padding: 15px 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0; /* Override default ul margin */
+    padding: 0; /* Override default ul padding */
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    transition: color var(--transition-speed), border-bottom var(--transition-speed);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* --- */
+/* Hero Section (Revised) */
+#hero {
+    background: url('your-hero-background-image.jpg') no-repeat center center/cover; /* Replace with your desired background image */
+    background-attachment: fixed; /* Optional: adds a parallax effect */
+    color: var(--white);
+    text-align: center;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Darker overlay for better text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4.8rem; /* Larger and more impactful heading */
+    margin-bottom: 25px;
+    color: var(--white);
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Subtle text shadow for depth */
+}
+
+.hero-content .tagline {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300; /* Lighter font weight for tagline */
+    line-height: 1.4;
+}
+
+.social-links {
+    margin-bottom: 50px; /* More space below social icons */
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 3rem; /* Larger icons */
+    margin: 0 20px;
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    display: inline-block; /* Ensure transform works correctly */
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.1); /* Subtle lift and grow effect on hover */
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 50px; /* Pill-shaped button */
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Initial shadow */
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color); /* Change color on hover */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Larger shadow on hover */
+}
+
+/* --- */
+/* About Section */
+#about .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+#about .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+#about p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- */
+/* Skills Section */
+#skills h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Reduce space after main heading */
+    color: var(--dark-bg); /* Ensure consistent heading color */
+}
+
+.section-subheading {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    margin-bottom: 60px; /* Space before the skills grid */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider min-width */
+    gap: 30px; /* Maintain good spacing */
+}
+
+.skill-category {
+    background-color: var(--white);
+    padding: 35px; /* Slightly more padding */
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* More pronounced shadow */
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    position: relative;
+    overflow: hidden; /* For any potential overlay effects */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Thin line at the top */
+    background-color: var(--primary-color); /* Primary color accent */
+    transition: all var(--transition-speed);
+    transform: translateY(-100%); /* Start off-screen */
+}
+
+.skill-category:hover::before {
+    transform: translateY(0); /* Slide in on hover */
+}
+
+.skill-category:hover {
+    transform: translateY(-8px); /* Lift more on hover */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Stronger shadow on hover */
+}
+
+.skill-icon {
+    font-size: 3.5rem; /* Larger icon size */
+    color: var(--primary-color); /* Icon color */
+    margin-bottom: 25px; /* Space below icon */
+    background-color: var(--light-bg); /* Light background for the icon */
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Subtle inner shadow */
+    transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.skill-category:hover .skill-icon {
+    transform: rotate(5deg) scale(1.05); /* Spin and slightly grow on hover */
+    color: var(--accent-color); /* Change icon color on hover */
+}
+
+
+.skill-category h3 {
+    color: var(--dark-bg); /* Heading color for better contrast */
+    margin-bottom: 25px; /* More space below heading */
+    font-size: 1.9rem; /* Slightly larger heading */
+    position: relative;
+    padding-bottom: 10px; /* Space for underline */
+}
+
+.skill-category h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50px; /* Short underline */
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transition: width var(--transition-speed);
+}
+
+.skill-category:hover h3::after {
+    width: 80px; /* Expand underline on hover */
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; /* Center list items if not already */
+    width: 100%; /* Ensure list takes full width */
+}
+
+.skill-category ul li {
+    padding: 10px 0; /* More padding for list items */
+    font-size: 1.05rem;
+    color: var(--text-color);
+    border-bottom: 1px dashed var(--light-bg); /* Dashed border for a softer look */
+    transition: color var(--transition-speed);
+}
+
+.skill-category ul li:last-child {
+    border-bottom: none;
+}
+
+.skill-category ul li:hover {
+    color: var(--primary-color); /* Highlight specific skill on hover */
+}
+
+/* --- */
+/* Projects Section */
+#projects h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+    color: var(--dark-bg);
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 15px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.project-links a i {
+    margin-right: 8px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.project-tech li {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevent breaking tags */
+}
+
+/* --- */
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer-social-links a {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: color var(--transition-speed);
+}
+
+.footer-social-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- */
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.8rem; }
+
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    .hero-content .tagline {
+        font-size: 1.6rem;
+    }
+    .social-links a {
+        font-size: 2.5rem;
+        margin: 0 15px;
+    }
+    .btn-primary {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.7rem; }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    #hero {
+        padding: 100px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content .tagline {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+    .social-links a {
+        font-size: 2.2rem;
+        margin: 0 10px;
+    }
+    .btn-primary {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+
+    #about .about-content {
+        flex-direction: column;
+    }
+
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-category {
+        padding: 30px;
+    }
+    .skill-icon {
+        font-size: 3rem;
+        width: 80px;
+        height: 80px;
+    }
+    .skill-category h3 {
+        font-size: 1.7rem;
+    }
+    .section-subheading {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    nav {
+        padding: 10px 0;
+    }
+    nav ul {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    #hero {
+        padding: 80px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content .tagline {
+        font-size: 1.1rem;
+    }
+    .social-links a {
+        font-size: 2rem;
+        margin: 0 8px;
+    }
+    .btn-primary {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+}
